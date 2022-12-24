@@ -1,6 +1,6 @@
 # Note taking and todo list web app written in flask.
 
-This is a simple website allows users to create, modify and delete notes and tasks.
+This is a simple website that allows users to create, modify and delete notes and tasks.
 
 ## Requirements:
 
