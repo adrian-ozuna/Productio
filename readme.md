@@ -1,7 +1,6 @@
-# URL Shortener written in flask.
+# Note taking and todo list web app written in flask.
 
-This is a simple url shortener website that i coded for learning purposes.
-After users create a private account, they're able to create shortened links and share them.
+This is a simple website allows users to create, modify and delete notes and tasks.
 
 ## Requirements:
 
