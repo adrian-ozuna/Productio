@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Notes{% endblock %}
+{% block content %}
+<div class="row">
+    <a href="/create-task" class="btn btn-primary col-12 mb-3 p-3 btn-long">Create task</a>
+    {% if user.tasks %}
+        {% for task in user.tasks%}
+            {% if not task.isCompleted %}
+            <div class="card col-12 mb-3">
+                <div class="card-body">
+                    <div class="btn-group float-end" role="group" aria-label="Basic mixed styles example">
+                        <a href="/finish-task/{{task.id}}" class="btn btn-success">Done</a>
+                        <a href="/edit-task/{{task.id}}" class="btn btn-warning disabled">Edit</a>
+                        <a href="/delete-task/{{task.id}}" type="button" class="btn btn-danger">Delete</a>
+                    </div>
+                    <h5 class="card-title">{{task.title}}</h5>
+                    <p class="card-text">{{task.description}}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    {% for subtask in task.subtasks %}
+                    <li class="list-group-item">{{subtask.title}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+    <p class="text-muted text-center">There are no tasks.</p>
+    {% endif %}
+</div>
+{% endblock %}

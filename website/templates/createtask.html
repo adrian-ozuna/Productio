@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Create task{% endblock %}
+{% block content %}
+<div class="card col-md-6 col-12 mx-auto p-3">
+    <form method="POST">
+        <div class="form-group mb-3">
+            <label for="tile">Title</label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="Eg. Groceries list" required>
+        </div>
+        <div class="form-group mb-3">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="text" name="description" rows="5"></textarea>
+        </div>
+        <div class="steps-list">
+            <button class="btn btn-primary col-12 btn-lg mb-3" type="button" id="addSubtask">Add step</button>
+            <div id="subtasks">
+                <!-- Dinamically generated input fields -->
+            </div>
+        </div>
+        <p>Priority:</p>
+        <div class="btn-group mb-1 col-12" role="group" aria-label="Basic radio toggle button group">
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="low" checked>
+            <label class="btn btn-outline-primary" for="btnradio1">Low</label>
+          
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="medium">
+            <label class="btn btn-outline-primary" for="btnradio2">Medium</label>
+          
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="high">
+            <label class="btn btn-outline-primary" for="btnradio3">High</label>
+          </div>
+        <button class="btn btn-primary col-12 mb-1">Create Task</button>
+        <a href="/" class="btn btn-danger col-12">Discard</a>
+    </form>
+</div>
+
+<script src="{{url_for('static', filename='/js/subtask.js')}}"></script>
+
+{% endblock %}

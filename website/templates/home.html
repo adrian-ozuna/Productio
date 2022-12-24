@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<style>
+    .home-buttons {
+        height: 30vh;
+    }
+
+    @media (min-width: 992px) {
+        .home-buttons {
+            height: 60vh;
+        }
+    }
+</style>
+<div class="row mx-auto gy-lg-0 gy-3">
+    <div class="col col-lg-6 col-12 text-center">
+        <button class="btn btn-primary btn-lg w-100 home-buttons" onclick="location.href='/notes'">Notes</button>
+    </div>
+    <div class="col col-lg-6 col-12 text-center">
+        <button class="btn btn-warning btn-lg w-100 home-buttons" onclick="location.href='/tasks'">Tasks</button>
+    </div>
+</div>
+{% endblock %}

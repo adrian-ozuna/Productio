@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Edit note{% endblock %}
+{% block content %}
+<div class="card col-md-6 col-12 mx-auto p-3">
+    <form method="POST">
+        <div class="form-group mb-3">
+            <label for="tile">Title</label>
+            <input type="text" class="form-control" id="title" name="title"
+                placeholder="Eg. Groceries list" value="{{title}}" required>
+        </div>
+        <div class="form-group mb-3">
+            <label for="text">Note</label>
+            <textarea class="form-control" id="text" name="text" rows="5">{{text}}</textarea>
+        </div>
+        <button class="btn btn-primary">Edit note</button>
+        <a href="/delete-note/{{noteId}}" class="btn btn-danger">Delete note</a>
+    </form>
+</div>
+{% endblock %}

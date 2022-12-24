@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Notes{% endblock %}
+{% block content %}
+<style>
+    .card:hover {
+        filter: brightness(90%);
+    }
+</style>
+{% if user.notes|length > 0 %}
+<h1>You have {{ user.notes|length }} {{ "note" if user.notes|length == 1 else "notes" }}.</h1>
+{% else %}
+<h1>You haven't created any notes.</h1>
+{% endif %}
+<a href="/create-note" class="btn btn-primary">Create note</a>
+<div class="row mt-3">
+    {% for note in user.notes %}
+    <div class="gx-lg-3 gy-3 col col-lg-3 col-12">
+        <a href="/edit-note/{{note.id}}" style="text-decoration: none;">
+            <div class="card p-3 h-100" style="background-color: {{note.borderColor}}; color: {{note.textColor}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{note.title[:50]}}</h5>
+                    <p class="card-text">{{note.data[:100]}}</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
